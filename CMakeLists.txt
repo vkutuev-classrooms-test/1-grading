@@ -7,14 +7,3 @@ if (IS_DIRECTORY ${STUDENT_DIR})
     set(STUDENT_SOURCE_DIR ${STUDENT_DIR}/src)
 endif()
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules")
-
-# cmocka
-option(ENABLE_TESTS "Perform unit tests after build" ON)
-if (ENABLE_TESTS)
-    find_package(CMocka CONFIG REQUIRED)
-    include(AddCMockaTest)
-    include(AddMockedTest)
-    add_subdirectory(test-assignment-grading-tests)
-    enable_testing()
-endif(ENABLE_TESTS)
